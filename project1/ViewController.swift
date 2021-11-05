@@ -51,7 +51,10 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+        pictures.sort()
+        
         print(pictures)
+        
     }
 
     //Showing lots of rows in tableView.
@@ -74,5 +77,10 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
+    
+    
+    
 }
 
