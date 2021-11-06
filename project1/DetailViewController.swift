@@ -7,9 +7,15 @@
 
 import UIKit
 
+var imageNum = 0
+
 class DetailViewController: UIViewController {
+    
     @IBOutlet var imageView: UIImageView!
     var selectedImage: String?
+    
+    var imageName = ["nssl0033.jpg", "nssl0034.jpg", "nssl0041.jpg", "nssl0042.jpg", "nssl0043.jpg", "nssl0045.jpg", "nssl0046.jpg", "nssl0049.jpg", "nssl0051.jpg", "nssl0091.jpg"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +35,25 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func btnBefore(_ sender: UIButton) {
+        imageNum = imageNum - 1
+        if (imageNum < 0) {
+            imageNum = imageName.count - 1
+        }
+        imageView.image = UIImage(named: imageName[imageNum])
+    }
+    
+    @IBAction func btnNext(_ sender: UIButton) {
+        imageNum = (imageNum + 1) % imageName.count
+        imageView.image = UIImage(named: imageName[imageNum])
+    }
+    
+    
     /**
     When tapping the selectedImage screen, Swift hides the bars above.
     Tapping again, it will show the bars again.
      */
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
@@ -41,6 +62,7 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
+ */
     
     //Share button
     @objc func shareTapped() {

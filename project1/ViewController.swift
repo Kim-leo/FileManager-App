@@ -24,7 +24,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         //The title of the tableView
-        title = "Storm Viewer"
+        title = "Imageo Viewer"
         //Making the title bigger and in DetailViewController the image titles are also big.
         navigationController?.navigationBar.prefersLargeTitles = true
         
